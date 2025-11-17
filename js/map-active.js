@@ -6,11 +6,12 @@ $(document).ready(function(){
 
 	var map;
 	map = new GMaps({
-		el: '#myMap',
-		lat: 51.507351,
-		lng: -0.127758,
-		scrollwheel:false,
-		zoom: 15,
+		 el: '#myMap',
+  lat: 11.2924919,
+lng: 75.7955513,
+
+    zoom: 17,
+		
 		zoomControl : false,
 		panControl : false,
 		streetViewControl : true,
@@ -21,8 +22,12 @@ $(document).ready(function(){
 
 	var image = 'img/map-marker.png';
 	map.addMarker({
-		lat: 51.507351,
-		lng: -0.127758,
+		lat: 11.2924919,
+    lng: 75.7955513,
+    title: 'Best For You Workforce',
+    infoWindow: {
+        content: '<p>Thadampattuthazham, Kozhikode, Kerala 673009</p>'
+    },
 		icon: image,
 		animation: google.maps.Animation.DROP,
 		verticalAlign: 'bottom',

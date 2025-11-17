@@ -1,0 +1,289 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Gallery | Best4You</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/icofont.css" />
+    <link rel="stylesheet" href="css/slicknav.min.css" />
+    <link rel="stylesheet" href="css/owl-carousel.css" />
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <style>
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 30px;
+        border-radius: 8px;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.55);
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease;
+      }
+      .gallery-item:hover .overlay {
+        opacity: 1;
+      }
+      .overlay i {
+        color: #fff;
+        font-size: 28px;
+      }
+      .gallery-item a,
+      .gallery-item img,
+      .gallery-item .overlay {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="loader">
+        <div class="loader-outter"></div>
+        <div class="loader-inner"></div>
+        <div class="indicator">
+          <svg width="16px" height="12px">
+            <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+            <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!-- End Preloader -->
+
+    <!-- Header -->
+    <header class="header">
+      <div class="topbar">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-5 col-12">
+              <ul class="top-link">
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-md-7 col-12">
+              <ul class="top-contact">
+                <li><i class="fa fa-phone"></i>+880 1234 56789</li>
+                <li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-inner">
+        <div class="container">
+          <div class="inner">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-12">
+                <div class="logo">
+                  <a href="index.html"><img src="img/logo.jpg" alt="#" /></a>
+                </div>
+                <div class="mobile-nav"></div>
+              </div>
+              <div class="col-lg-7 col-md-9 col-12">
+                <div class="main-menu">
+                  <nav class="navigation">
+                    <ul class="nav menu">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li class="active"><a href="gallery.html">Gallery</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              <div class="col-lg-2 col-12">
+                <div class="get-quote">
+                  <a href="#" class="btn">Upload Resume</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Gallery Section -->
+    <section class="gallery section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="section-title">
+              <h2>Explore Our Gallery</h2>
+              <img src="img/section-img.png" alt="#" />
+              <p>Take a look at our team, events, and achievements — we’re proud to share our story with you.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row gallery-items">
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="gallery-item">
+              <a href="img/gallery1.jpg" class="popup-link">
+                <img src="img/gallery1.jpg" alt="Gallery 1" />
+                <div class="overlay"><i class="fa fa-search-plus"></i></div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="gallery-item">
+              <a href="img/gallery2.jpg" class="popup-link">
+                <img src="img/gallery2.jpg" alt="Gallery 2" />
+                <div class="overlay"><i class="fa fa-search-plus"></i></div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="gallery-item">
+              <a href="img/gallery3.jpg" class="popup-link">
+                <img src="img/gallery3.jpg" alt="Gallery 3" />
+                <div class="overlay"><i class="fa fa-search-plus"></i></div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="gallery-item">
+              <a href="img/gallery4.jpg" class="popup-link">
+                <img src="img/gallery4.jpg" alt="Gallery 4" />
+                <div class="overlay"><i class="fa fa-search-plus"></i></div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="gallery-item">
+              <a href="img/gallery6.jpg" class="popup-link">
+                <img src="img/gallery6.jpg" alt="Gallery 5" />
+                <div class="overlay"><i class="fa fa-search-plus"></i></div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="gallery-item">
+              <a href="img/gallery7.jpg" class="popup-link">
+                <img src="img/gallery7.jpg" alt="Gallery 6" />
+                <div class="overlay"><i class="fa fa-search-plus"></i></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer">
+                <h2>About Us</h2>
+                <p>CareerPath helps job seekers connect with top employers through expert guidance and professional services.</p>
+                <ul class="social">
+                  <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                  <li><a href="#"><i class="icofont-google-plus"></i></a></li>
+                  <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer f-link">
+                <h2>Quick Links</h2>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="gallery.html">Gallery</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer f-link">
+                <h2>Job Seekers</h2>
+                <ul>
+                  <li><a href="#">Resume Building</a></li>
+                  <li><a href="#">Interview Prep</a></li>
+                  <li><a href="#">Networking</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer f-link">
+                <h2>Contact Us</h2>
+                <p>1234 Career Road, Job City, USA</p>
+                <p>Phone: 1234 56789</p>
+                <p>Email: info@careerpath.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <p>&copy; 2025 CareerPath. All Rights Reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('.popup-link').magnificPopup({
+          type: 'image',
+          gallery: { enabled: true }
+        });
+      });
+    </script>
+  </body>
+</html>
