@@ -1,4 +1,9 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
+
 <html class="no-js" lang="zxx">
     <head>
         <!-- Meta Tags -->
@@ -82,7 +87,7 @@
             <div class="col-lg-6 col-md-7 col-12">
               <!-- Top Contact -->
               <ul class="top-contact">
-                <li><i class="fa fa-phone"></i>+91 7594008787</li>
+                <li><i class="fa fa-phone"></i>+91 7594008787 </li>
                  <li><i class="fa fa-phone"></i>+91 495 2921500</li>
                 <li>
                   <i class="fa fa-envelope"></i
@@ -124,7 +129,7 @@
                       </li>
                       <li><a href="about.html">About </a></li>
                       <li><a href="services.html">Service </a></li>
-                      <li class="active"><a href="contact.html">Contact Us</a></li>
+                      <li class="active"><a href="contact.php">Contact Us</a></li>
                     </ul>
                   </nav>
                 </div>
@@ -175,45 +180,69 @@
 							</div>
 						</div>
 						<div class="col-lg-6">
+						 
+
 							<div class="contact-us-form">
 								<h2>Contact With Us</h2>
 								<p>If you have any questions please fell free to contact with us.</p>
 								<!-- Form -->
-								<form id="contactForm" class="form" method="post" action="mail/mail.php">
+					
+
+ <!-- SUCCESS MESSAGE -->
+    <?php if(isset($_SESSION['success_message'])): ?>
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            <?php echo $_SESSION['success_message']; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php unset($_SESSION['success_message']); ?>
+    <?php endif; ?>
+
+    <!-- ERROR MESSAGE -->
+    <?php if(isset($_SESSION['error_message'])): ?>
+        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+            <?php echo $_SESSION['error_message']; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php unset($_SESSION['error_message']); ?>
+    <?php endif; ?>
+
+
+
+								<form id="contactForm" class="form" method="post" action="mail.php">
 
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
-												<input type="text" name="name" placeholder="Name" required="">
+												<input type="text" name="name" placeholder="Name" >
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
-												<input type="email" name="email" placeholder="Email" required="">
+												<input type="email" name="email" placeholder="Email" >
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
-												<input type="text" name="phone" placeholder="Phone" required="">
+												<input type="text" name="phone" placeholder="Phone">
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
-												<input type="text" name="subject" placeholder="Subject" required="">
+												<input type="text" name="subject" placeholder="Subject" >
 											</div>
 										</div>
 										<div class="col-lg-12">
 											<div class="form-group">
-												<textarea name="message" placeholder="Your Message" required=""></textarea>
+												<textarea name="message" placeholder="Your Message"></textarea>
 											</div>
 										</div>
 										<div class="col-12">
 											<div class="form-group login-btn">
-												<button class="btn" type="submit">Send</button>
+												<button class="btn" id="subBtn" type="submit">Send</button>
 											</div>
-											<div class="checkbox">
-												<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Do you want to subscribe our Newsletter ?</label>
-											</div>
+											<!--<div class="checkbox">-->
+											<!--	<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Do you want to subscribe our Newsletter ?</label>-->
+											<!--</div>-->
 										</div>
 									</div>
 								</form>
@@ -342,10 +371,10 @@
 		
 		<!-- jquery Min JS -->
         <script src="js/jquery.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/jquery.validation/1.19.5/jquery.validate.min.js"></script>
 
 		<!-- jquery Migrate JS -->
 		<script src="js/jquery-migrate-3.0.0.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"></script>
 		<!-- jquery Ui JS -->
 		<script src="js/jquery-ui.min.js"></script>
 		<!-- Easing JS -->
@@ -388,62 +417,92 @@
 		<script src="js/bootstrap.min.js"></script>
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
-		<script>
-$("#contactForm").validate({
-    rules: {
-        name: {
-            required: true,
-            minlength: 3
+			
+
+	<script>
+$(document).ready(function () {
+
+    // Test jQuery click event
+   
+
+    // NAME: only letters & spaces (NO numbers & NO special chars)
+    $.validator.addMethod("lettersOnly", function(value, element) {
+        return this.optional(element) || /^[A-Za-z ]+$/.test(value);
+    }, "Name can contain only letters and spaces");
+
+    // PHONE: only digits + exactly 10 digits
+    $.validator.addMethod("phoneDigits", function(value, element) {
+        return this.optional(element) || /^[0-9]{10}$/.test(value);
+    }, "Enter a valid 10-digit phone number");
+
+    // VALIDATION
+    $("#contactForm").validate({
+        rules: {
+            name: {
+                required: true,
+                minlength: 3,
+                lettersOnly: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            phone: {
+                required: true,
+                phoneDigits: true
+            },
+            subject: {
+                required: true,
+                minlength: 3
+            },
+            message: {
+                required: true,
+                minlength: 10
+            }
         },
-        email: {
-            required: true,
-            email: true
+
+        // MESSAGES
+        messages: {
+            name: {
+                required: "Required Field",
+                minlength: "Name must be at least 3 characters",
+                lettersOnly: "Name can contain only letters and spaces"
+            },
+            email: {
+                required: "Required Field",
+                email: "Enter a valid email address"
+            },
+            phone: {
+                required: "Required Field",
+                phoneDigits: "Phone number must be exactly 10 digits"
+            },
+            subject: {
+                required: "Required Field",
+                minlength: "Subject must be at least 3 characters"
+            },
+            message: {
+                required: "Required Field",
+                minlength: "Message must be at least 10 characters"
+            }
         },
-        phone: {
-            required: true,
-            minlength: 10,
-            maxlength: 15,
-            digits: true
-        },
-        subject: {
-            required: true,
-            minlength: 3
-        },
-        message: {
-            required: true,
-            minlength: 10
+
+        // invalidHandler: function () {
+        //     alert("VALIDATION TRIGGERED!");
+        // },
+
+        errorClass: "error-message",
+        errorPlacement: function(error, element) {
+            error.insertAfter(element);
         }
-    },
-    messages: {
-        name: {
-            required: "Please enter your name",
-            minlength: "Name must be at least 3 characters"
-        },
-        email: {
-            required: "Please enter your email",
-            email: "Enter a valid email address"
-        },
-        phone: {
-            required: "Please enter your phone number",
-            digits: "Only numbers allowed",
-            minlength: "Phone must be at least 10 digits",
-            maxlength: "Phone cannot exceed 15 digits"
-        },
-        subject: {
-            required: "Please enter a subject",
-            minlength: "Subject must be at least 3 characters"
-        },
-        message: {
-            required: "Please enter your message",
-            minlength: "Message must be at least 10 characters"
-        }
-    },
-    errorClass: "error-message",
-    errorPlacement: function(error, element) {
-        error.insertAfter(element);
-    }
+    });
+
+    // Debug logs
+    console.log("jQuery loaded:", typeof jQuery);
+    console.log("Validation plugin loaded:", $.fn.validate);
 });
+
 </script>
+
 
 <style>
 .error-message {
