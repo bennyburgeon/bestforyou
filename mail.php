@@ -46,19 +46,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'sanamol87@gmail.com';
-        $mail->Password   = 'godwaaapnuxjfejy';
+        $mail->Username   = 'recruiter@best4ucareers.com';
+        $mail->Password   = 'Recru@best4u#1123';
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
         // $mail->SMTPDebug = 2;
         // $mail->Debugoutput = 'html';
 
-        $mail->setFrom('sanamol87@gmail.com', 'BestForYou Enquiry');
+        $mail->setFrom('recruiter@best4ucareers.com', 'BestForYou Enquiry');
         $mail->addReplyTo($email, $name);
 //best4uclt@gmail.com
         // IMPORTANT: MUST HAVE THIS!!!
-        $mail->addAddress('best4uclt@gmail.com');
+        $mail->addAddress('recruiter@best4ucareers.com');
         $mail->addAddress('sanarajan124@gmail.com');
          $mail->addAddress('mail.technoveda@gmail.com');
 

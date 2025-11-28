@@ -91,8 +91,8 @@ session_start();
                  <li><i class="fa fa-phone"></i>+91 495 2921500</li>
                 <li>
                   <i class="fa fa-envelope"></i
-                  ><a href="mailto:support@yourmail.com"
-                    >best4uclt@gmail.com</a
+                  ><a href="recruiter@best4ucareers.com"
+                    >recruiter@best4ucareers.com</a
                   >
                 </li>
               </ul>
@@ -260,7 +260,7 @@ session_start();
 								<div class="content">
 									<h3>+91 7594008787</h3>
 									<h3>+91 495 2921500</h3>
-									<p>best4uclt@gmail.com</p>
+									<p>recruiter@best4ucareers.com</p>
 								</div>
 							</div>
 						</div>
@@ -350,7 +350,7 @@ session_start();
                 <h2>Contact Us</h2>
                 <p>1587/H, Elayambari House (Ambadi Building),  Florican Road, Malaparamba,Kozhikode, Kerala 673009.</p>
                 <p>Phone: +91 7594008787, <br>+91 495 2921500</p>
-                <p>Email: best4uclt@gmail.com</p>
+                <p>Email: recruiter@best4ucareers.com</p>
               </div>
             </div>
           </div>
